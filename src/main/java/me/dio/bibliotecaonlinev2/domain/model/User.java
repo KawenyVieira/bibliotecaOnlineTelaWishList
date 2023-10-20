@@ -2,6 +2,7 @@ package me.dio.bibliotecaonlinev2.domain.model;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
 import java.util.List;
 
 @Entity(name = "tb_user")
@@ -12,6 +13,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String username;
+    private Date birth;
     @OneToMany(cascade = CascadeType.ALL, fetch= FetchType.EAGER)
     private List<Feature> features;
 
@@ -28,6 +30,10 @@ public class User {
     public String getUsername() {return username;}
 
     public void setUsername(String username) {this.username = username;}
+
+    public Date getBirth() {return birth;}
+
+    public void setBirth(Date birth) {this.birth = birth;}
 
     public List<Feature> getFeatures() {return features;}
 
